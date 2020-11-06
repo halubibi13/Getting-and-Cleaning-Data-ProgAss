@@ -28,4 +28,11 @@ names(df_final) <- new_features[[2]]
 
 # extract mean and std columns
 columns_to_retain <- grep("mean|std", names(df_final))
-df_mean_std <- df_final[columns_to_retain]
+df_mean_std <- df_final[c(columns_to_retain,562)]
+
+# extract activity labels
+act_labels <- read.table("activity_labels.txt")
+names(act_labels) <- c("code", "activity")
+
+# replace target values with descriptive values
+merged <- merge(df_mean_std, act_labels, by.x = "targetActivity", by.y = "code")
