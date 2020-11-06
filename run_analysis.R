@@ -47,13 +47,27 @@ time_sub <- gsub("^t", "time", freq_sub)
 final_names <- gsub("(Body){2}", "Body", time_sub)
 names(merged) <- final_names
 
-# final tidy dataset is 'merged'
-
-## Second ind. tidy dataset with the average of each variable for each activity
+# install and load necessary packages
 install.packages("data.table")
+install.packages("dplyr")
 library(data.table)
+library(dplyr)
 
-df_copy <- copy(merged) # make a copy of 'merged'
+# retrieve subject labels
+subject_test <- read.table("./test/subject_test.txt")
+subject_train <- read.table("./train/subject_train.txt")
+df_subject <- rbind(subject_train, subject_test)
+names(df_subject) <- "subject"
+final_df <- cbind(df_subject, merged)
 
+# final tidy dataset is 'final_df'
 
+## Make a second ind. tidy dataset with the average of each variable
+## for each activity and each subject
+df_copy <- copy(final_df) # make a copy of 'final_df'
 
+# do the summarization
+df_grouped <- group_by(df_copy, activity, subject)
+summ_df <- summarise_all(df_grouped, mean)
+
+# summarized dataframe is 'summ_df'
