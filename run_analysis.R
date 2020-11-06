@@ -71,3 +71,6 @@ df_grouped <- group_by(df_copy, activity, subject)
 summ_df <- summarise_all(df_grouped, mean)
 
 # summarized dataframe is 'summ_df'
+
+## Produce the summarized tidy dataset in txt format
+write.table(x=summ_df, file = "summ_tidy_dataset.txt", row.names = FALSE)
