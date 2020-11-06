@@ -48,8 +48,8 @@ final_names <- gsub("(Body){2}", "Body", time_sub)
 names(merged) <- final_names
 
 # install and load necessary packages
-install.packages("data.table")
-install.packages("dplyr")
+install.packages("data.table")  # optional
+install.packages("dplyr")       # optional
 library(data.table)
 library(dplyr)
 
