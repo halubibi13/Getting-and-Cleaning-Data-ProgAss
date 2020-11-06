@@ -38,10 +38,10 @@ names(act_labels) <- c("code", "activity")
 merged <- merge(df_mean_std, act_labels, by.x = "targetActivity", by.y = "code")
 merged <- merged[2:length(names(merged))]
 
-# rename target variable
-library(dplyr)
-merged2 <- rename(merged, targetActvity = activity)
-
 # modify variable names
-rem_parenth <- gsub("[()]", "", names(merged2))
-final_names <- gsub("-", "_", rem_parenth)
+rem_parenth <- gsub("[()]", "", names(merged))
+rep_hyph <- gsub("-", "_", rem_parenth)
+freq_sub <- gsub("^f", "frequency", rep_hyph)
+time_sub <- gsub("^t", "time", freq_sub)
+final_names <- gsub("(Body){2}", "Body", time_sub)
+names(merged) <- final_names
