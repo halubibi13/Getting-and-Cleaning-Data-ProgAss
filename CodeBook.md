@@ -6,14 +6,13 @@ The features selected for this database come from the accelerometer and gyroscop
 
 Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing frequencyBodyAcc-XYZ, frequencyBodyAccJerk-XYZ, frequencyBodyGyro-XYZ, frequencyBodyAccJerkMag, frequencyBodyGyroMag, frequencyBodyGyroJerkMag.
 
-'final_df' Variable Description:
+### 'final_df' Variable Description
 
-Notes: 
-======
+#### Notes:
 - Features are normalized and bounded within [-1,1].
 - Variables 2 to 80 are all numerical measurements from the accelerometer and gyroscope
 
-[1] "subject" - identifier of the subject who carried out the experiment
+[1] "subject" - identifier of the subject who carried out the experiment              
 [2] "timeBodyAcc_mean_X"                        
 [3] "timeBodyAcc_mean_Y"                        
 [4] "timeBodyAcc_mean_Z"               
@@ -92,7 +91,8 @@ Notes:
 [77] "frequencyBodyGyroMag_meanFreq"    
 [78] "frequencyBodyGyroJerkMag_mean"    
 [79] "frequencyBodyGyroJerkMag_std"     
-[80] "frequencyBodyGyroJerkMag_meanFreq"
+[80] "frequencyBodyGyroJerkMag_meanFreq"        
 [81] "activity" - activity label
 
+### 'summ_df' Variable Description
 The measurement variables (columns 3 to 81) of 'summ_df' are identical to variables 2 to 80 of 'final_df' but summarized (averaged) according to activity and subject.
