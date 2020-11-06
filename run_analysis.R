@@ -36,3 +36,12 @@ names(act_labels) <- c("code", "activity")
 
 # replace target values with descriptive values
 merged <- merge(df_mean_std, act_labels, by.x = "targetActivity", by.y = "code")
+merged <- merged[2:length(names(merged))]
+
+# rename target variable
+library(dplyr)
+merged2 <- rename(merged, targetActvity = activity)
+
+# modify variable names
+rem_parenth <- gsub("[()]", "", names(merged2))
+final_names <- gsub("-", "_", rem_parenth)
