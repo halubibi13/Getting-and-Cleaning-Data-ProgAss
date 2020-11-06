@@ -1,0 +1,10 @@
+setwd("~/UCI HAR Dataset")
+x_test <- read.table("./test/X_test.txt")
+y_test <- read.table("./test/y_test.txt")
+x_train <- read.table("./train/X_train.txt")
+y_train <- read.table("./train/y_train.txt")
+
+sum(colSums(is.na(x_test)))
+sum(colSums(is.na(x_train)))
+sum(colSums(is.na(y_test)))
+sum(colSums(is.na(y_train)))
