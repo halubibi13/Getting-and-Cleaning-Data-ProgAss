@@ -1,3 +1,4 @@
+## Making the tidy dataset
 # set wd
 setwd("~/UCI HAR Dataset")
 
@@ -45,3 +46,14 @@ freq_sub <- gsub("^f", "frequency", rep_hyph)
 time_sub <- gsub("^t", "time", freq_sub)
 final_names <- gsub("(Body){2}", "Body", time_sub)
 names(merged) <- final_names
+
+# final tidy dataset is 'merged'
+
+## Second ind. tidy dataset with the average of each variable for each activity
+install.packages("data.table")
+library(data.table)
+
+df_copy <- copy(merged) # make a copy of 'merged'
+
+
+
